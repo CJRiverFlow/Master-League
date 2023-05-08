@@ -14,11 +14,13 @@ You should have configured your AWS account and complete the serverless framewor
 
 - Clone the repository and run `npm install` to install serverless plugins.
 
-- Run on terminal the following command: `sls deploy dev`.
+- Run on terminal the following command: `sls deploy --stage dev`.
 
 ## Application and Documentation
 
-This application follow the points below:
+The API includes endpoints to create teams, new seasons, after registering the teams on a season we can add the match results.
+
+The following points have been implemented:
 
 1. Only matches with teams registered in the season can be created.
 2. Teams will only face each other once per season.
