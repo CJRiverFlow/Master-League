@@ -1,0 +1,1564 @@
+{
+	"info": {
+		"_postman_id": "3a59c582-932d-4dfa-9b50-319b00928003",
+		"name": "Master League Api",
+		"description": "Documentation for Master League API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17275974"
+	},
+	"item": [
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "create_team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Real Sociedad\",\r\n    \"established_year\": 1990,\r\n    \"location\": \"Santa Bárbara\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/teams",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"teams"
+							]
+						},
+						"description": "Create a new league team"
+					},
+					"response": [
+						{
+							"name": "create_team",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Real Sociedad\",\r\n    \"established_year\": 1990,\r\n    \"location\": \"Santa Bárbara\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/teams",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"teams"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:12:48 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"established_year\": 1990,\n    \"id\": \"real-sociedad\",\n    \"location\": \"Santa Bárbara\",\n    \"name\": \"Real Sociedad\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update_team",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"established_year\": 1988,\r\n    \"location\": \"Santa Bárbara\",\r\n    \"name\": \"Real Sociedad FC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/teams/:team_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"teams",
+								":team_id"
+							],
+							"variable": [
+								{
+									"key": "team_id",
+									"value": "real-sociedad"
+								}
+							]
+						},
+						"description": "Update team attributes"
+					},
+					"response": [
+						{
+							"name": "update_team",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"established_year\": 1988,\r\n    \"location\": \"Santa Bárbara\",\r\n    \"name\": \"Real Sociedad FC\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/teams/:team_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"teams",
+										":team_id"
+									],
+									"variable": [
+										{
+											"key": "team_id",
+											"value": "real-sociedad"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:12:55 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"established_year\": 1988,\n    \"id\": \"real-sociedad\",\n    \"location\": \"Santa Bárbara\",\n    \"name\": \"Real Sociedad FC\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_all_teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/teams",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"teams"
+							]
+						},
+						"description": "List all the teams created"
+					},
+					"response": [
+						{
+							"name": "get_all_teams",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/teams",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"teams"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "371"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:13:01 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teams\": [\n        {\n            \"established_year\": 1960,\n            \"id\": \"olimpia\",\n            \"location\": \"Tegucigalpa\",\n            \"name\": \"olimpia\"\n        },\n        {\n            \"established_year\": 1965,\n            \"id\": \"motagua\",\n            \"location\": \"Tegucigalpa\",\n            \"name\": \"Motagua\"\n        },\n        {\n            \"established_year\": 1965,\n            \"id\": \"marathon\",\n            \"location\": \"San Pedro Sula\",\n            \"name\": \"Marathon\"\n        },\n        {\n            \"established_year\": 1988,\n            \"id\": \"real-sociedad\",\n            \"location\": \"Santa Bárbara\",\n            \"name\": \"Real Sociedad FC\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get_team_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/teams/:team_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"teams",
+								":team_id"
+							],
+							"variable": [
+								{
+									"key": "team_id",
+									"value": "olimpia"
+								}
+							]
+						},
+						"description": "Get team attributes by id"
+					},
+					"response": [
+						{
+							"name": "get_team_by_id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/teams/:team_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"teams",
+										":team_id"
+									],
+									"variable": [
+										{
+											"key": "team_id",
+											"value": "olimpia"
+										}
+									]
+								}
+							},
+							"status": "ACCEPTED",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:13:06 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"established_year\": 1960,\n    \"id\": \"olimpia\",\n    \"location\": \"Tegucigalpa\",\n    \"name\": \"olimpia\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_team_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/teams/:team_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"teams",
+								":team_id"
+							],
+							"variable": [
+								{
+									"key": "team_id",
+									"value": "vida"
+								}
+							]
+						},
+						"description": "Delete a registered team by ID"
+					},
+					"response": [
+						{
+							"name": "delete_team_by_id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/teams/:team_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"teams",
+										":team_id"
+									],
+									"variable": [
+										{
+											"key": "team_id",
+											"value": "vida"
+										}
+									]
+								}
+							},
+							"status": "NO CONTENT",
+							"code": 204,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:12:02 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Basic methods for teams"
+		},
+		{
+			"name": "Seasons",
+			"item": [
+				{
+					"name": "create_season",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"temporada clausura\",\r\n    \"year\": 2022\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/seasons",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons"
+							]
+						},
+						"description": "Create a new league season"
+					},
+					"response": [
+						{
+							"name": "create_season",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"temporada clausura\",\r\n    \"year\": 2022\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/seasons",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:24:03 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"champion_id\": \"UNDEFINED\",\n    \"id\": \"temporada-clausura-2022\",\n    \"name\": \"temporada clausura\",\n    \"year\": 2022\n}"
+						},
+						{
+							"name": "create_existing_season",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"temporada clausura\",\r\n    \"year\": 2022\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/seasons",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons"
+									]
+								}
+							},
+							"status": "CONFLICT",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:52:26 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Season name temporada clausura for year 2022 already exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update_season",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"champion_id\": \"olimpia\",\r\n    \"name\": \"temporada clausura\",\r\n    \"year\": 2022\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-clausura-2022"
+								}
+							]
+						},
+						"description": "Update season attributes"
+					},
+					"response": [
+						{
+							"name": "update_season",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"champion_id\": \"olimpia\",\r\n    \"name\": \"temporada clausura\",\r\n    \"year\": 2022\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-clausura-2022"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:28:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"champion_id\": \"olimpia\",\n    \"id\": \"temporada-clausura-2022\",\n    \"name\": \"temporada clausura\",\n    \"year\": 2022\n}"
+						}
+					]
+				},
+				{
+					"name": "get_season_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-clausura-2023"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_season_by_id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-clausura-2023"
+										}
+									]
+								}
+							},
+							"status": "ACCEPTED",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:19:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"champion_id\": \"olimpia\",\n    \"id\": \"temporada-clausura-2023\",\n    \"name\": \"temporada-apertura-2022\",\n    \"year\": 2022\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_season_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-clausura-2023"
+								}
+							]
+						},
+						"description": "Delete a season by ID"
+					},
+					"response": [
+						{
+							"name": "delete_season_by_id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2022"
+										}
+									]
+								}
+							},
+							"status": "NO CONTENT",
+							"code": 204,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:22:19 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "get_all_seasons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons"
+							]
+						},
+						"description": "Get all the seasons created"
+					},
+					"response": [
+						{
+							"name": "get_all_seasons",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "212"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:25:05 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"seasons\": [\n        {\n            \"champion_id\": \"UNDEFINED\",\n            \"id\": \"temporada-clausura-2022\",\n            \"name\": \"temporada clausura\",\n            \"year\": 2022\n        },\n        {\n            \"champion_id\": \"UNDEFINED\",\n            \"id\": \"temporada-apertura-2023\",\n            \"name\": \"temporada apertura\",\n            \"year\": 2023\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get_seasons_by_year",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons?year=2023",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2023"
+								}
+							]
+						},
+						"description": "Get all the seasons from an specific year"
+					},
+					"response": [
+						{
+							"name": "get_seasons_by_year",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons?year=2023",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2023"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:25:39 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"seasons\": [\n        {\n            \"champion_id\": \"UNDEFINED\",\n            \"id\": \"temporada-apertura-2023\",\n            \"name\": \"temporada apertura\",\n            \"year\": 2023\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Basic operations with league seasons"
+		},
+		{
+			"name": "season-matches-teams",
+			"item": [
+				{
+					"name": "register_team_to_season",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"team_id\": \"real-sociedad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id/teams",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id",
+								"teams"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-apertura-2023"
+								}
+							]
+						},
+						"description": "Register a team into a season"
+					},
+					"response": [
+						{
+							"name": "register_team_to_season",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"team_id\": \"olimpia\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/teams",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										}
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:28:57 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"olimpia\",\n    \"name\": \"olimpia\",\n    \"registration_date\": \"2023-05-07 19:28:57\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_teams_by_season",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id/teams",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id",
+								"teams"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-apertura-2023"
+								}
+							]
+						},
+						"description": "Get all the matches by season ID"
+					},
+					"response": [
+						{
+							"name": "get_teams_by_season",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/teams",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:30:19 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teams\": [\n        {\n            \"id\": \"motagua\",\n            \"name\": \"Motagua\",\n            \"registration_date\": \"2023-05-07 19:30:06\"\n        },\n        {\n            \"id\": \"olimpia\",\n            \"name\": \"olimpia\",\n            \"registration_date\": \"2023-05-07 19:28:57\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_team_from_season",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id/teams/:team_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id",
+								"teams",
+								":team_id"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-apertura-2023"
+								},
+								{
+									"key": "team_id",
+									"value": "real-sociedad"
+								}
+							]
+						},
+						"description": "Unregister a team from a season"
+					},
+					"response": [
+						{
+							"name": "delete_team_from_season",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/teams/:team_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"teams",
+										":team_id"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										},
+										{
+											"key": "team_id",
+											"value": "real-sociedad"
+										}
+									]
+								}
+							},
+							"status": "NO CONTENT",
+							"code": 204,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:32:52 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "register_match_to_season",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"team1_id\": \"motagua\",\r\n    \"team2_id\": \"olimpia\",\r\n    \"team1_goals\": 3,\r\n    \"team2_goals\": 3,\r\n    \"date\": \"2023-07-03T14:31:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id/matches",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id",
+								"matches"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-apertura-2023"
+								}
+							]
+						},
+						"description": "Register a match result into a season"
+					},
+					"response": [
+						{
+							"name": "register_match_to_season",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"team1_id\": \"motagua\",\r\n    \"team2_id\": \"olimpia\",\r\n    \"team1_goals\": 3,\r\n    \"team2_goals\": 3,\r\n    \"date\": \"2023-07-03T14:31:00.000Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/matches",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"matches"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										}
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:46:01 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"date\": \"2023-07-03 14:31:00\",\n    \"id\": \"935180aa-1356-5af8-b86f-9a7be1a9fb4b\",\n    \"registration_date\": \"2023-05-07 19:46:01\",\n    \"team1_goals\": 3,\n    \"team1_id\": \"motagua\",\n    \"team2_goals\": 3,\n    \"team2_id\": \"olimpia\"\n}"
+						},
+						{
+							"name": "register_existing_match",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"team1_id\": \"motagua\",\r\n    \"team2_id\": \"olimpia\",\r\n    \"team1_goals\": 3,\r\n    \"team2_goals\": 3,\r\n    \"date\": \"2023-07-03T14:31:00.000Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/matches",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"matches"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										}
+									]
+								}
+							},
+							"status": "CONFLICT",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:50:52 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Match between teams already created\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_matches_by_season",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id/matches",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id",
+								"matches"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-apertura-2023"
+								}
+							]
+						},
+						"description": "Get all the matches by season ID"
+					},
+					"response": [
+						{
+							"name": "get_matches_by_season",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/matches",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"matches"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:41:32 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"matches\": [\n        {\n            \"date\": \"2023-07-03 14:31:00\",\n            \"id\": \"935180aa-1356-5af8-b86f-9a7be1a9fb4b\",\n            \"registration_date\": \"2023-05-07 19:41:18\",\n            \"team1_goals\": 3,\n            \"team1_id\": \"motagua\",\n            \"team2_goals\": 3,\n            \"team2_id\": \"olimpia\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get_by_season_and_match_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id/matches/:match_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id",
+								"matches",
+								":match_id"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-apertura-2023"
+								},
+								{
+									"key": "match_id",
+									"value": "935180aa-1356-5af8-b86f-9a7be1a9fb4b"
+								}
+							]
+						},
+						"description": "Get a season match by ID"
+					},
+					"response": [
+						{
+							"name": "get_by_season_and_match_id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/matches/:match_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"matches",
+										":match_id"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										},
+										{
+											"key": "match_id",
+											"value": "935180aa-1356-5af8-b86f-9a7be1a9fb4b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:47:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"date\": \"2023-07-03 14:31:00\",\n    \"id\": \"935180aa-1356-5af8-b86f-9a7be1a9fb4b\",\n    \"registration_date\": \"2023-05-07 19:46:01\",\n    \"team1_goals\": 3,\n    \"team1_id\": \"motagua\",\n    \"team2_goals\": 3,\n    \"team2_id\": \"olimpia\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_match_from_season",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/seasons/:season_id/matches/:match_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"seasons",
+								":season_id",
+								"matches",
+								":match_id"
+							],
+							"variable": [
+								{
+									"key": "season_id",
+									"value": "temporada-apertura-2023"
+								},
+								{
+									"key": "match_id",
+									"value": "935180aa-1356-5af8-b86f-9a7be1a9fb4b"
+								}
+							]
+						},
+						"description": "Delete a match registered in a season"
+					},
+					"response": [
+						{
+							"name": "delete_match_from_season",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/seasons/:season_id/matches/:match_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"seasons",
+										":season_id",
+										"matches",
+										":match_id"
+									],
+									"variable": [
+										{
+											"key": "season_id",
+											"value": "temporada-apertura-2023"
+										},
+										{
+											"key": "match_id",
+											"value": "935180aa-1356-5af8-b86f-9a7be1a9fb4b"
+										}
+									]
+								}
+							},
+							"status": "NO CONTENT",
+							"code": 204,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 01:35:50 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Contains addional requests for team and match results registration into a season."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

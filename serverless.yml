@@ -1,0 +1,132 @@
+service: master-league
+
+frameworkVersion: "3"
+
+custom:
+  wsgi:
+    app: app.app
+  leagueTableName: ${self:service}-league-table-${self:provider.stage}
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-2
+  stage: ${opt:stage, 'dev'}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:BatchGetItem
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - Fn::GetAtt: [LeagueTable, Arn]
+        - Fn::Join:
+            - ""
+            - - Fn::GetAtt: [LeagueTable, Arn]
+              - "/index/*"
+  environment:
+    LEAGUE_TABLE: ${self:custom.leagueTableName}
+
+functions:
+  api:
+    handler: wsgi_handler.handler
+    events:
+      - httpApi:
+          method: POST
+          path: /api/teams
+      - httpApi:
+          method: GET
+          path: /api/teams
+      - httpApi:
+          method: GET
+          path: /api/teams/{team_id}
+      - httpApi:
+          method: PUT
+          path: /api/teams/{team_id}
+      - httpApi:
+          method: DELETE
+          path: /api/teams/{team_id}
+      - httpApi:
+          method: POST
+          path: /api/seasons
+      - httpApi:
+          method: GET
+          path: /api/seasons
+      - httpApi:
+          method: PUT
+          path: /api/seasons/{season_id}
+      - httpApi:
+          method: GET
+          path: /api/seasons/{season_id}
+      - httpApi:
+          method: DELETE
+          path: /api/seasons/{season_id}
+      - httpApi:
+          method: POST
+          path: /api/seasons/{season_id}/teams
+      - httpApi:
+          method: GET
+          path: /api/seasons/{season_id}/teams
+      - httpApi:
+          method: DELETE
+          path: /api/seasons/{season_id}/teams/{teamd_id}
+      - httpApi:
+          method: POST
+          path: /api/seasons/{season_id}/matches
+      - httpApi:
+          method: GET
+          path: /api/seasons/{season_id}/matches
+      - httpApi:
+          method: GET
+          path: /api/seasons/{season_id}/matches/{match_id}
+      - httpApi:
+          method: DELETE
+          path: /api/seasons/{season_id}/matches/{match_id}
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+
+resources:
+  Resources:
+    LeagueTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.leagueTableName}
+        AttributeDefinitions:
+          - AttributeName: PK
+            AttributeType: S
+          - AttributeName: SK
+            AttributeType: S
+          - AttributeName: GSI1PK
+            AttributeType: S
+          - AttributeName: GSI1SK
+            AttributeType: S
+        KeySchema:
+          - AttributeName: PK
+            KeyType: HASH
+          - AttributeName: SK
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        GlobalSecondaryIndexes:
+          - IndexName: GSI1
+            KeySchema:
+              - AttributeName: GSI1PK
+                KeyType: HASH
+              - AttributeName: GSI1SK
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+
+package:
+  patterns:
+    - "!env/**"
